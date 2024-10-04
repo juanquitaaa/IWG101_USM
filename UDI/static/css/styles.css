@@ -47,3 +47,30 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.barras-container {
+    display: flex;
+    position: absolute;
+    left: 12%;
+    bottom: 0px;
+    transform: translateX(-50%);
+    width: 237px;
+}
+
+.barra {
+    flex: 1;
+    height: 30px;
+    margin: 0px;
+}
+
+.roja {
+    background-color: #da2522;
+}
+
+.amarillo {
+    background-color: #ffcf55;
+}
+
+.azul {
+    background-color: #045e9b;
+}
