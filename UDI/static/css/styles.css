@@ -74,3 +74,24 @@ button {
 .azul {
     background-color: #045e9b;
 }
+
+.rombo {
+    position: absolute;
+    top: 50px; /* Distancia desde la parte superior */
+    right: 60px; /* Distancia desde la derecha */
+    width: 80px; /* Ancho del rombo */
+    height: 80px; /* Alto del rombo */
+    background-color: #dc7fb8; /* Color morado */
+    color: white; /* Color del texto */
+    display: flex;
+    justify-content: center; /* Centra el texto horizontalmente */
+    align-items: center; /* Centra el texto verticalmente */
+    transform: rotate(45deg); /* Rota el div para que tenga forma de rombo */
+    font-family: 'Arial', sans-serif; /* Cambia si usas una fuente diferente */
+    font-weight: bold; /* Opcional: hace el texto más grueso */
+}
+.rombo span {
+    transform: rotate(-55deg); /* Rota el texto para que se vea horizontal */
+    font-size: 40px; /* Ajusta el tamaño del texto aquí */
+    font-weight: bold; /* Mantén el texto en negrita si lo deseas */
+}
