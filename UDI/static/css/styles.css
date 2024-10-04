@@ -49,9 +49,9 @@ button {
 }
 
 .barras-container {
-    display: flex;
+    display: flex; 
     position: absolute;
-    left: 12%;
+    left: 12%;   
     bottom: 0px;
     transform: translateX(-50%);
     width: 237px;
