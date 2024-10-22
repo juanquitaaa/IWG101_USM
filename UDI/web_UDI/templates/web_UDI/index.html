@@ -10,15 +10,19 @@
 <body>
     <div class="container">
         <h1>Bienvenida</h1>
-        <img id = "logo-usm" src ="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fquimicaymedioambienteconcepcion.usm.cl%2Fwp-content%2Fuploads%2F2021%2F06%2Flogo-usm.png&f=1&nofb=1&ipt=0c586d79991041068d2c21870986162e620b45723dfe607deee8f50779f901c6&ipo=images" alt="Logo USM">
+        <img id="logo-usm" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fquimicaymedioambienteconcepcion.usm.cl%2Fwp-content%2Fuploads%2F2021%2F06%2Flogo-usm.png&f=1&nofb=1&ipt=0c586d79991041068d2c21870986162e620b45723dfe607deee8f50779f901c6&ipo=images" alt="Logo USM">
+        
         <form method="post">
             {% csrf_token %}
             <input type="text" name="usuario" placeholder="Usuario" required>
             <input type="password" name="contrasena" placeholder="Contraseña" required>
             <button type="submit">Entrar</button>
         </form>
+        <!-- Botón para registrarse -->
+        <a href="{% url 'register' %}" class="btn-register">Registrarse</a>
     </div>
-    <!--barritas de colores-->
+
+    <!-- barritas de colores -->
     <div class="barras-container">
         <div class="barra roja"></div>
         <div class="barra amarillo"></div>
@@ -28,3 +32,4 @@
     <div class="rombo"><span>UDI</span></div>
 </body>
 </html>
+
