@@ -26,7 +26,7 @@ Cosas que temos:
 - lo anterior conectado a una base de datos
 
     |Lo que falta para terminar|
-        - El poder iniciar secion despues de registrar el usuario
+        - El poder iniciar sesión despues de registrar el usuario
         - los mensajes de los datos obligatorios (lo dijo el ayudante por discord)
         - hacer que no se crashee la pagina al no tener un dato del registro
 
