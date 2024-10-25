@@ -21,3 +21,6 @@ def register(request):
         contraseña=request.POST['contraseña'],
         foto_de_perfil=request.FILES['foto_de_perfil'])
         return redirect('index')
+
+def test(request):
+    return render(request, "web_UDI/test.html")

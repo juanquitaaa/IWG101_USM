@@ -1,0 +1,219 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar_container {
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 20%;
+    background-color: #f7b9df;
+    height: 100vh;
+    /* Altura completa de la pantalla */
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    /* Fijar en la parte izquierda */
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom:8%;
+}
+
+.profile img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    
+    /* Alinear los nombres en columna */
+}
+
+.profile-info h2 {
+    margin: 0;
+}
+
+.profile-info p {
+    text-align: center;
+    margin-top: 4%;
+}
+
+.interests ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.interests ul li {
+    margin: 6px 0;
+    color: #ff66c4;
+}
+
+.interests ul li a{
+    color: #ff66c4;
+    text-decoration: none;
+}
+
+.button-interests {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #dc7fb8;
+    padding: 0px;
+    border-radius: 10px;
+    font-size: 10px;
+}
+
+.button-interests h3{
+    color: #531f3f;
+    font-size: 20px;
+    margin:5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.button-interests button {
+    background-color: transparent;
+    display: inline-block;
+    border: none;
+    border-radius: 8px;
+    display: contents;
+    cursor: pointer;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #2f6627;
+}
+
+.button-interests button:active {
+    position: relative;
+    top: 1px;
+}
+
+.button-interests button:after {
+    /*content: '\02795';*/
+    /* Unicode character for "plus" sign (+) */
+    content: '+';
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.button-interests button.minus:after {
+    content: '-';
+    font-size: 13px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    /* Unicode para el signo "-" */
+}
+
+#interests-list{
+    background-color: #f7d3e9;    
+    padding:10px;
+    border-radius: 10px
+}
+
+.norms {
+    margin-top: 0px;
+}
+
+/*.norms button {
+    background-color: #f06a9d;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 8%;
+    left: 0;
+}*/
+
+.norms button {
+    left: 0%;
+    bottom: 8%;
+    position: fixed;
+    background-color: #8a4b82;
+    width: 180px;
+    height: 40px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+}
+
+.triangle {
+        position: absolute;
+        bottom: 7.2%;
+        right: 40px;
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-top: 50px solid #f7b9df;
+        transform: rotate(225deg);
+}
+
+.norms button:hover {
+    background-color: #e05589;
+}
+
+/* Contenido principal */
+.main-content {
+    margin-left: 20%;
+    /* Desplaza el contenido a la derecha del sidebar */
+    width: 75%;
+    padding: 20px;
+}
+
+.sidebar-settings {
+    text-decoration: none;
+    position: fixed;
+    bottom: 2%;
+    left: 1%;
+    font-weight: bold;
+    color: black;
+}
+
+.sidebar-settings:before {
+    content: "\2699";
+    font-size: 20px;
+    color: #531f3f;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100px;
+    }
+
+    .main-content {
+        margin-left: 100px;
+        width: calc(100% - 100px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+}

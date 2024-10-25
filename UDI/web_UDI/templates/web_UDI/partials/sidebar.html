@@ -1,0 +1,32 @@
+{% load static %}
+
+<div id="sidebar" class="sidebar">
+    <div class="profile">
+        <img src="https://media.istockphoto.com/id/2015429231/es/vector/vector-flat-illustration-in-black-color-avatar-user-profile-person-icon-profile-picture.jpg?s=1024x1024&w=is&k=20&c=VkuinqqZWMkfH0izczZ8CQri0-Kp-Bg5__hPSQlwWgw=" alt="Perfil de Wendy">
+        <div class="profile-info">
+            <h2 class="name">Wendy</h2>
+            <p class="name">Sansana</p>
+        </div>
+    </div>
+    <div class="interests">
+        <div class="button-interests">
+            <h3>Intereses</h3>
+            <button id="toggle-interests"></button>
+        </div>
+        
+        <ul id="interests-list" style="display: none;"> <!-- Lista inicialmente oculta -->
+            <li><a href="">#Grupos_estudio</a></li>
+            <li><a href="">#Informatica</a></li>
+            <li><a href="">#salud</a></li>
+            <li><a href="">#gatos</a></li>
+            <!-- Agrega más intereses -->
+        </ul>
+    </div>
+    <div class="norms">
+        <button>Normas de Convivencia</button>
+        <div class="triangle"></div>
+    </div>
+    <a href=" " class="sidebar-settings">Ajustes</a>
+</div>
+<!-- Incluir el archivo JavaScript externo -->
+<script src="{% static 'javascript/sidebar.js' %}"></script>
