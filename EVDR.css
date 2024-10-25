@@ -1,0 +1,97 @@
+@font-face {
+    font-family: 'Brittany';
+    src: url('../fonts/BrittanySignature.ttf') format('truetype');
+}
+body {
+    background-color: #fed5ee;
+    font-family: 'Arial', sans-serif;
+}
+#logo-usm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: auto;
+    margin: 10px;
+}
+
+.container {
+    max-width: 400px;
+    margin: 100px auto;
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-family: 'Brittany', sans-serif;
+    color: #dc7fb8;
+}
+
+input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #f3a6bc;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.barras-container {
+    display: flex;
+    position: absolute;
+    left: 12%;
+    bottom: 0px;
+    transform: translateX(-50%);
+    width: 237px;
+}
+
+.barra {
+    flex: 1;
+    height: 30px;
+    margin: 0px;
+}
+
+.roja {
+    background-color: #da2522;
+}
+
+.amarillo {
+    background-color: #ffcf55;
+}
+
+.azul {
+    background-color: #045e9b;
+}
+
+.rombo {
+    position: absolute;
+    top: 50px; /* Distancia desde la parte superior */
+    right: 60px; /* Distancia desde la derecha */
+    width: 80px; /* Ancho del rombo */
+    height: 80px; /* Alto del rombo */
+    background-color: #dc7fb8; /* Color morado */
+    color: white; /* Color del texto */
+    display: flex;
+    justify-content: center; /* Centra el texto horizontalmente */
+    align-items: center; /* Centra el texto verticalmente */
+    transform: rotate(45deg); /* Rota el div para que tenga forma de rombo */
+    font-family: 'Arial', sans-serif; /* Cambia si usas una fuente diferente */
+    font-weight: bold; /* Opcional: hace el texto más grueso */
+}
+.rombo span {
+    transform: rotate(-55deg); /* Rota el texto para que se vea horizontal */
+    font-size: 40px; /* Ajusta el tamaño del texto aquí */
+    font-weight: bold; /* Mantén el texto en negrita si lo deseas */
+}
