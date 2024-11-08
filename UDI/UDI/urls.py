@@ -26,6 +26,7 @@ urlpatterns = [
     path('',views.index, name='index'),
     path("register/",views.register, name='register'),
     path('test/',views.test, name='test'),
+    path('error/',views.error, name='error')
 ]
 
 if settings.DEBUG:
