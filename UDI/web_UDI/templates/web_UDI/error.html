@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>Usuario y/o contrasena incorrectos</h1>
-    <a href="{% url 'index' %}">
-        <button>Volver</button>
-    </a>
+    <div class="container error-container">
+        <h1 class="error-message">Usuario y/o contraseña incorrectos</h1>
+        <a href="{% url 'index' %}" class="btn-register btn-return">
+            Volver
+        </a>
+    </div>
 </body>
+</html>
