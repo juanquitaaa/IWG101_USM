@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import CrearUsuario
-from .models import Usuario
+from .models import Usuario, Mensaje
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 
@@ -37,7 +37,23 @@ def register(request):
         return redirect('index')
 
 def test(request):
-    return render(request, "web_UDI/test.html")
+    mensajes = Mensaje.objects.all().order_by('-fecha_publicacion')
+    return render(request, "web_UDI/test.html", {"mensajes": mensajes})
 
 def error(request):
     return render(request, "web_UDI/error.html")
+
+def posting(request):
+    if request.method == "POST":
+        contenido = request.POST.get("contenido")
+        apodo = request.POST.get("apodo")
+        
+        try:
+            usuario = Usuario.objects.get(apodo=apodo)
+            nuevo_mensaje = Mensaje(contenido=contenido, usuario=usuario)
+            nuevo_mensaje.save()
+            return redirect('test')
+        except Usuario.DoesNotExist:
+            return render(request, 'web_UDI/posting.html', {"error": "Usuario no encontrado"})
+
+    return render(request, 'web_UDI/posting.html')

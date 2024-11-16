@@ -1,23 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/sidebar_styles.css' %}">
-    <title></title>
+    <title>Mensajes</title>
 </head>
-
 <body>
     <!-- Importar el sidebar -->
     {% include 'web_UDI/partials/sidebar.html' %}
 
     <!-- Contenido principal -->
     <div class="main-content">
-        <h1>Bienvenido a Página 1</h1>
-        <p>Este es el contenido principal de la página.</p>
+        <!-- Publicar un nuevo mensaje -->
+        <a href="{% url 'posting' %}">Publicar un nuevo mensaje</a>
+        
+        <div class="post-area">
+            <textarea placeholder="Escribe un nuevo mensaje..."></textarea>
+            <button>Publicar</button>
+        </div>
+
+        <!-- Listado de mensajes -->
+        <div class="mensajes">
+            {% for mensaje in mensajes %}
+                <div class="mensaje">
+                    <img src="{{ mensaje.usuario.foto_de_perfil.url }}" alt="Foto de perfil" width="50" height="50">
+                    <div>
+                        <p><strong>{{ mensaje.usuario.apodo }}</strong></p>
+                        <p>{{ mensaje.contenido }}</p>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No hay mensajes aún.</p>
+            {% endfor %}
+        </div>
+
+        <!-- Temas y alertas -->
+        <div class="temas-alertas">
+            <!-- Temas -->
+            <div class="temas">
+                <h3>Temas</h3>
+                <ul>
+                    <li>Tema 1</li>
+                    <li>Tema 2</li>
+                    <li>Tema 3</li>
+                </ul>
+            </div>
+
+            <!-- Alertas -->
+            <div class="alertas">
+                <h3>Alertas</h3>
+                <ul>
+                    <li>Alerta 1</li>
+                    <li>Alerta 2</li>
+                    <li>Alerta 3</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
-
 </html>

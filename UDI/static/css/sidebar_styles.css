@@ -5,6 +5,7 @@ html {
     font-family: Arial, sans-serif;
 }
 
+/* Sidebar Container */
 .sidebar_container {
     display: flex;
 }
@@ -13,12 +14,10 @@ html {
 .sidebar {
     width: 20%;
     background-color: #f7b9df;
-    height: 100vh;
-    /* Altura completa de la pantalla */
+    height: 100vh; /* Altura completa de la pantalla */
     padding: 20px;
     box-sizing: border-box;
-    position: fixed;
-    /* Fijar en la parte izquierda */
+    position: fixed; /* Fijar en la parte izquierda */
 }
 
 .profile {
@@ -26,7 +25,7 @@ html {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin-bottom:8%;
+    margin-bottom: 8%;
 }
 
 .profile img {
@@ -39,8 +38,6 @@ html {
     display: flex;
     flex-direction: column;
     margin-top: auto;
-    
-    /* Alinear los nombres en columna */
 }
 
 .profile-info h2 {
@@ -63,7 +60,7 @@ html {
     color: #ff66c4;
 }
 
-.interests ul li a{
+.interests ul li a {
     color: #ff66c4;
     text-decoration: none;
 }
@@ -77,10 +74,10 @@ html {
     font-size: 10px;
 }
 
-.button-interests h3{
+.button-interests h3 {
     color: #531f3f;
     font-size: 20px;
-    margin:5px;
+    margin: 5px;
 }
 
 .hidden {
@@ -89,60 +86,32 @@ html {
 
 .button-interests button {
     background-color: transparent;
-    display: inline-block;
     border: none;
-    border-radius: 8px;
-    display: contents;
     cursor: pointer;
-    text-decoration: none;
     text-shadow: 0px 1px 0px #2f6627;
 }
 
-.button-interests button:active {
-    position: relative;
-    top: 1px;
-}
-
 .button-interests button:after {
-    /*content: '\02795';*/
-    /* Unicode character for "plus" sign (+) */
     content: '+';
     font-size: 13px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
 }
 
 .button-interests button.minus:after {
     content: '-';
     font-size: 13px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    /* Unicode para el signo "-" */
+    display: flex;
+    justify-content: center;
 }
 
-#interests-list{
-    background-color: #f7d3e9;    
-    padding:10px;
-    border-radius: 10px
-}
-
-.norms {
-    margin-top: 0px;
-}
-
-/*.norms button {
-    background-color: #f06a9d;
-    color: white;
+#interests-list {
+    background-color: #f7d3e9;
     padding: 10px;
-    border: none;
-    cursor: pointer;
-    position: fixed;
-    bottom: 8%;
-    left: 0;
-}*/
+    border-radius: 10px;
+}
 
+/* Norms */
 .norms button {
     left: 0%;
     bottom: 8%;
@@ -158,14 +127,14 @@ html {
 }
 
 .triangle {
-        position: absolute;
-        bottom: 7.2%;
-        right: 40px;
-        width: 0;
-        height: 0;
-        border-left: 50px solid transparent;
-        border-top: 50px solid #f7b9df;
-        transform: rotate(225deg);
+    position: absolute;
+    bottom: 7.2%;
+    right: 50px;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-top: 50px solid #f7b9df;
+    transform: rotate(225deg);
 }
 
 .norms button:hover {
@@ -174,10 +143,120 @@ html {
 
 /* Contenido principal */
 .main-content {
-    margin-left: 20%;
-    /* Desplaza el contenido a la derecha del sidebar */
-    width: 75%;
+    margin-left: 20%; /* Desplaza el contenido a la derecha del sidebar */
     padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Espaciado entre columnas */
+    gap: 20px; /* Separación entre los mensajes y las alertas */
+}
+
+/* Mensajes */
+.mensajes {
+    width: 65%; /* Ocupa un 65% del ancho */
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    max-width: 800px;
+}
+
+.mensaje {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.mensaje:hover {
+    background-color: #f7d3e9; /* Cambia el fondo al pasar el mouse */
+}
+
+.mensaje img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.mensaje div p {
+    margin: 5px 0;
+}
+
+/* Publicar nuevo mensaje */
+.post-area {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.post-area textarea {
+    width: calc(100% - 90px);
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    resize: none;
+}
+
+.post-area button {
+    width: 80px;
+    background-color: #f7b9df;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.post-area button:hover {
+    background-color: #e589c0;
+}
+
+/* Temas y alertas */
+.temas-alertas {
+    width: 30%; /* Ocupa un 30% del ancho */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaciado entre Temas y Alertas */
+}
+
+.temas, .alertas {
+    background-color: #f7d3e9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.temas h3, .alertas h3 {
+    margin: 0 0 10px 0;
+    color: #531f3f;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.temas ul, .alertas ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.temas ul li, .alertas ul li {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #531f3f;
+}
+
+.temas ul li:before, .alertas ul li:before {
+    content: "• ";
+    color: #e05589;
+    font-size: 16px;
+    margin-right: 5px;
 }
 
 .sidebar-settings {
@@ -196,6 +275,7 @@ html {
     margin-right: 10px;
 }
 
+/* Responsive Design */
 @media screen and (max-width: 768px) {
     .sidebar {
         width: 100px;
