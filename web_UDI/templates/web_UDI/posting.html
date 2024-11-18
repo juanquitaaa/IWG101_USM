@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Publicar Mensaje</title>
+</head>
+<body>
+    <h2>Publicar un nuevo mensaje</h2>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="apodo">Apodo del Usuario:</label>
+        <input type="text" id="apodo" name="apodo" required><br>
+        <label for="contenido">Mensaje:</label>
+        <textarea id="contenido" name="contenido" required></textarea><br>
+        <button type="submit">Publicar Mensaje</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenida</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenida</h1>
+        <img id="logo-usm" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fquimicaymedioambienteconcepcion.usm.cl%2Fwp-content%2Fuploads%2F2021%2F06%2Flogo-usm.png&f=1&nofb=1&ipt=0c586d79991041068d2c21870986162e620b45723dfe607deee8f50779f901c6&ipo=images" alt="Logo USM">
+        
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="Email" placeholder="Correo" required> <!-- donde dice name es el formulario que recibe en el login y placeholder lo que sale en pantalla-->
+            <input type="password" name="Contraseña" placeholder="Contraseña" required>
+            <button type="submit">Entrar</button>
+        </form>
+        <!-- Botón para registrarse -->
+        <a href="{% url 'register' %}" class="btn-register">Registrarse</a>
+    </div>
+
+    <!-- barritas de colores -->
+    <div class="barras-container">
+        <div class="barra roja"></div>
+        <div class="barra amarillo"></div>
+        <div class="barra azul"></div>
+    </div> 
+
+    <div class="rombo"><span>UDI</span></div>
+</body>
+</html>
