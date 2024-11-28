@@ -28,7 +28,8 @@ urlpatterns = [
     path('test/',views.test, name='test'),
     path('error/',views.error, name='error'),
     path('posting/', views.posting, name='posting'),
-    path('delete/<int:mensaje_id>/', views.delete, name='delete')
+    path('delete/<int:mensaje_id>/', views.delete, name='delete'),
+    path('avisos/', views.crear_aviso, name='avisos')
 ]
 
 if settings.DEBUG:

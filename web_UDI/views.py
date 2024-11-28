@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .forms import CrearUsuario
-from .models import Usuario, Mensaje
+from .models import Usuario, Mensaje, Avisos
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 
@@ -38,7 +38,8 @@ def register(request):
 
 def test(request):
     mensajes = Mensaje.objects.all().order_by('-fecha_publicacion')
-    return render(request, "web_UDI/test.html", {"mensajes": mensajes})
+    avisos = Avisos.objects.all().order_by('-fecha_publicacion')
+    return render(request, "web_UDI/test.html", {"mensajes": mensajes, "avisos": avisos})
 
 def error(request):
     return render(request, "web_UDI/error.html")
@@ -62,3 +63,34 @@ def delete(request, mensaje_id):
     mensaje = get_object_or_404(Mensaje, id=mensaje_id)
     mensaje.delete()  # Permite eliminar sin validar usuario
     return redirect('test')  # Redirige de vuelta a la página principal
+
+def crear_aviso(request):
+    if request.method == 'POST':
+        usuario_nombre = request.POST.get('usuario')
+        aviso_texto = request.POST.get('aviso')
+        ubicacion = request.POST.get('ubicacion')
+
+        # Validación básica
+        if not usuario_nombre or not aviso_texto or not ubicacion:
+            return render(request, 'crear_aviso.html', {
+                'error': 'Todos los campos son obligatorios.',
+            })
+        
+        try:
+            # Buscar el usuario por nombre
+            usuario = Usuario.objects.get(apodo=usuario_nombre)
+            # Crear el aviso
+            Avisos.objects.create(
+                usuario=usuario,
+                aviso=aviso_texto,
+                ubicacion=ubicacion
+            )
+            return redirect('test')  # Redirigir a una página de lista de avisos
+        except Usuario.DoesNotExist:
+            # Si el usuario no existe, mostrar un error
+            return render(request, 'crear_aviso.html', {
+                'error': 'El usuario ingresado no existe. Verifique el nombre.',
+            })
+    
+    # Renderizar el formulario para GET
+    return render(request, 'web_UDI/avisos.html')

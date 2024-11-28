@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Aviso</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mensajes.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Publicar un nuevo aviso</h2>
+        {% if error %}
+            <p class="error" style="color: red;">{{ error }}</p>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="usuario">Nombre del Usuario:</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Escribe el nombre del usuario" required>
+            </div>
+            <div class="input-group">
+                <label for="aviso">Aviso:</label>
+                <textarea id="aviso" name="aviso" placeholder="Escribe el aviso aquí..." required></textarea>
+            </div>
+            <div class="input-group">
+                <label for="ubicacion">Ubicación:</label>
+                <input type="text" id="ubicacion" name="ubicacion" placeholder="Ubicación del aviso" required>
+            </div>
+            <div class="input-group">
+                <button type="submit">Publicar Aviso</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

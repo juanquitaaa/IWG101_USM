@@ -1,0 +1,108 @@
+.btn {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    display: inline-block;
+    margin: 5px;
+}
+
+.btn-posting {
+    background-color: #dc7fb8;
+}
+
+.btn-panico {
+    background-color: #FF0000;
+}
+
+.btn:hover {
+    opacity: 0.8;
+} 
+
+.btn-danger { /*Botón de eliminar*/
+    color: black;
+}
+
+.header-section { /* Cabecera de la sección*/
+    position: fixed; 
+    top: 0;
+    left: 20%; 
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 50%; /*Tuve que jugar con las alineaciones a mano, no se que tan responsivo sea*/
+    background-color: white; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    margin-left: auto;
+}
+
+.avisos {
+    border: 1px solid #ccc; 
+    padding: 15px; 
+    background-color: #e4a4cb !important; /*se tuvo que forzar el color de fondo, no se donde chota está configurada la sección avisos xd*/
+    border-radius: 8px;
+    margin-top: 20px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    z-index: 1000;
+    overflow: auto;
+}
+
+.avisos h2 { /* Título de la sección */
+    margin-top: 0; 
+    font-size: 1.5em; 
+    color: #531f3f; 
+}
+
+.avisos p { /* Párrafo de la sección */
+    font-size: 1em; 
+    color: #black; 
+    line-height: 1.5; 
+}
+
+.avisos ul { /* Lista de la sección */
+    list-style-type: disc; 
+    padding-left: 20px; 
+}
+
+.avisos li { /* Elementos de la lista */
+    margin-bottom: 10px; 
+}
+.mensajes {
+    margin-top: 10%;
+    overflow-y: auto;
+
+}
+
+.mensaje {
+    border-bottom: 1px solid #ccc; 
+    padding: 10px 0; 
+    display: flex;
+    align-items: flex-start;
+}
+
+.mensaje img {
+    border-radius: 50%; 
+    margin-right: 10px; 
+    flex-shrink: 0;
+}
+
+.mensaje p {
+    margin: 0; 
+}
+
+.mensaje strong {
+    display: block; 
+    font-size: 1.1em; 
+    color: #333; 
+}
+
+.mensaje form {
+    margin-left: auto; 
+}

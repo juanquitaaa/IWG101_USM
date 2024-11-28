@@ -1,21 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publicar Mensaje</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mensajes.css' %}">
 </head>
 <body>
-    <h2>Publicar un nuevo mensaje</h2>
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
-    <form method="post">
-        {% csrf_token %}
-        <label for="apodo">Apodo del Usuario:</label>
-        <input type="text" id="apodo" name="apodo" required><br>
-        <label for="contenido">Mensaje:</label>
-        <textarea id="contenido" name="contenido" required></textarea><br>
-        <button type="submit">Publicar Mensaje</button>
-    </form>
+    <div class="container">
+        <h2>Publicar un nuevo mensaje</h2>
+        {% if error %}
+            <p class="error" style="color: red;">{{ error }}</p>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="apodo">Apodo del Usuario:</label>
+                <input type="text" id="apodo" name="apodo" required>
+            </div>
+            <div class="input-group">
+                <label for="contenido">Mensaje:</label>
+                <textarea id="contenido" name="contenido" placeholder="¿Qué estás pensando?" required></textarea>
+            </div>
+            <div class="input-group">
+                <button type="submit">Publicar Mensaje</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

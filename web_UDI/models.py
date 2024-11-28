@@ -14,3 +14,9 @@ class Mensaje(models.Model):
     contenido = models.TextField()
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     fecha_publicacion = models.DateTimeField(auto_now_add=True)
+
+class Avisos(models.Model):
+    aviso = models.TextField()
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    fecha_publicacion = models.DateTimeField(auto_now_add=True)
+    ubicacion = models.TextField()
