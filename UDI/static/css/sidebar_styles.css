@@ -126,17 +126,6 @@ html {
     border: none;
 }
 
-.triangle {
-    position: absolute;
-    bottom: 7.2%;
-    right: 50px;
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-top: 50px solid #f7b9df;
-    transform: rotate(225deg);
-}
-
 .norms button:hover {
     background-color: #e05589;
 }
