@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/settings.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sidebar_styles.css' %}">
+</head>
+
+<body>
+
+    {% include 'web_UDI/partials/sidebar.html' %}
+    <div class="content-wrapper">
+        <div class="main-content">
+            <div id="settings-main-content">
+                <h1>Mi cuenta</h1>
+                <div class="settings-profile-info">
+                    <img src="{{ usuario.foto_de_perfil.url }}" alt="Foto de perfil" class="settings-profile-pic">
+                    <h2>{{ usuario.nombres }}</h2>
+                </div>
+                <form method="POST" enctype="multipart/form-data" action="{% url 'actualizar_perfil' usuario.usuario_id %}">
+                    {% csrf_token %}    
+                    <form method="POST" enctype="multipart/form-data" action="{% url 'actualizar_perfil' usuario.usuario_id %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="{{ form.nombres.id_for_label }}">Nombres</label>
+                            {{ form.nombres }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.apellidos.id_for_label }}">Apellidos</label>
+                            {{ form.apellidos }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.apodo.id_for_label }}">Apodo</label>
+                            {{ form.apodo }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.email.id_for_label }}">Correo electrónico</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="form-group grid-foto">
+                            <label for="{{ form.foto_de_perfil.id_for_label }}">Foto de perfil</label>
+                            {{ form.foto_de_perfil }}
+                        </div>
+                        <div class="grid-btn"></div>
+                        <button type="submit">Guardar cambios</button>
+                        <a href="{% url 'test' %}" class="settings-home-btn">Home</a>
+                    </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

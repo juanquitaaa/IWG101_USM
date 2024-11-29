@@ -1,0 +1,119 @@
+/* Estilo general del contenedor */
+#settings-main-content {
+    padding: 0px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#settings-main-content h1{
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+/* Alineación y estilo de la información del perfil */
+.settings-profile-info {
+    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    /* Espaciado entre la foto de perfil y el resto */
+}
+
+.settings-profile-info h2 {
+    font-size: 38px;
+    margin-left: 3vw;
+}
+
+/* Estilo de la foto de perfil */
+.settings-profile-pic {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.settings-home-btn {
+    grid-column: span 2;
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    background-color: #8a4b82;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+ .grid-foto{
+    grid-column: span 2;
+ }
+
+.grid-btn{
+    grid-column: span 2;
+}
+
+/* Estilo para el formulario en grilla */
+form {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    /* 2 columnas: una para las etiquetas y otra para los inputs */
+    gap: 15px;
+    /* Espacio entre las columnas */
+    max-width: 600px;
+    margin-top:3vh;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de las etiquetas */
+form .form-group label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    text-align: left;
+    /* Alineamos el texto de la etiqueta a la izquierda */
+}
+
+/* Estilo para los campos de entrada */
+form .form-control,
+form .form-control-file {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+/* Efecto al hacer foco en los campos */
+form .form-control:focus,
+form .form-control-file:focus {
+    border-color: #66afe9;
+    outline: none;
+}
+
+/* Estilo para el botón de envío */
+button[type="submit"] {
+    grid-column: span 2;
+    /* El botón ocupa ambas columnas */
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #8a4b82;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto cuando el botón tiene el cursor encima */
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}

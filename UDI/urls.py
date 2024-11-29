@@ -29,7 +29,10 @@ urlpatterns = [
     path('error/',views.error, name='error'),
     path('posting/', views.posting, name='posting'),
     path('delete/<int:mensaje_id>/', views.delete, name='delete'),
-    path('avisos/', views.crear_aviso, name='avisos')
+    path('avisos/', views.crear_aviso, name='avisos'),
+    path('ajustes/', views.settings, name='ajustes'),
+    path('settings/', views.settings, name='settings'),
+    path('actualizar/<int:usuario_id>/', views.actualizar_perfil, name='actualizar_perfil'),
 ]
 
 if settings.DEBUG:

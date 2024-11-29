@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from .forms import CrearUsuario
+from .forms import CrearUsuario, EditarPerfilForm
 from .models import Usuario, Mensaje, Avisos
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
@@ -14,9 +14,10 @@ def index(request):
         try:
             user = Usuario.objects.get(email=email, contraseña=password) #es .get(llave_del_modelo=variable declarada)
             # Credenciales válidas
+            request.session['usuario_id'] = user.usuario_id
             return redirect('test')  # Redirigir a la página deseada en caso de éxito
         except Usuario.DoesNotExist:
-            # Si el usuario no existe o la contraseña es incorrecta, redirigir a error
+            # Si el usuario no existe o la contraseña es incorrecta, redirigir 6a error
             return redirect('error')
 
     return render(request, "web_UDI/index.html")
@@ -37,9 +38,14 @@ def register(request):
         return redirect('index')
 
 def test(request):
+
+    usuario_id = request.session.get('usuario_id')
+    usuario = get_object_or_404(Usuario, usuario_id=usuario_id)
+
+
     mensajes = Mensaje.objects.all().order_by('-fecha_publicacion')
     avisos = Avisos.objects.all().order_by('-fecha_publicacion')
-    return render(request, "web_UDI/test.html", {"mensajes": mensajes, "avisos": avisos})
+    return render(request, "web_UDI/test.html", {"mensajes": mensajes, "avisos": avisos,"usuario": usuario})
 
 def error(request):
     return render(request, "web_UDI/error.html")
@@ -94,3 +100,34 @@ def crear_aviso(request):
     
     # Renderizar el formulario para GET
     return render(request, 'web_UDI/avisos.html')
+
+def settings(request):
+    # Recuperamos el usuario_id desde la sesión
+    usuario_id = request.session.get('usuario_id')
+
+    if not usuario_id:
+        return redirect('index')  # Redirige si no hay usuario en sesión
+
+    # Obtenemos al usuario usando el usuario_id
+    usuario = get_object_or_404(Usuario, usuario_id=usuario_id)
+
+    # Cargamos el formulario con los datos del usuario
+    form = EditarPerfilForm(instance=usuario)
+
+    return render(request, 'web_UDI/settings.html', {'form': form, 'usuario': usuario})
+
+def actualizar_perfil(request, usuario_id):
+    # Obtenemos al usuario usando el usuario_id
+    usuario = get_object_or_404(Usuario, usuario_id=usuario_id)
+
+    if request.method == 'POST':
+        # Creamos el formulario con los datos enviados
+        form = EditarPerfilForm(request.POST, request.FILES, instance=usuario)
+        if form.is_valid():
+            form.save()  # Guardamos los cambios
+            return redirect('settings')  # Redirigimos a la página de configuración
+    else:
+        # Si no es un POST, cargamos el formulario de nuevo
+        form = EditarPerfilForm(instance=usuario)
+
+    return render(request, 'web_UDI/settings.html', {'form': form, 'usuario': usuario})
